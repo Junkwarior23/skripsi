@@ -25,18 +25,13 @@ class Home extends BaseController
     public function index(): string
     {
 
-        $user = \auth()->user();
-        if ($user != null) :
-            $data = [
-                'title' => "Daftar Mustahiq",
-                'mustahiq' => $this->mustahiqmodel->getMustahiq()
-            ];
+        $data = [
+            'title' => "Daftar Mustahiq",
+            'mustahiq' => $this->mustahiqmodel->getMustahiq()
+        ];
 
 
-            return view('mustahiq/home', $data);
-        else :
-            return view('mustahiq/login');
-        endif;
+        return view('mustahiq/home', $data);
     }
 
     public function detail($id)

@@ -1,40 +1,33 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Remaja Masjid Al-Maghfirah Surabaya</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="navbar-brand" href="#">Remas Masjid Al-Maghfirah Surabaya</a>
+            <ul class="navbar-nav "> <!-- Changed "me-auto" to "ms-auto" for right alignment -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/mustahiq">Daftar Mustahiq</a>
+                </li>
+                <?php $user = \auth()->user(); ?>
+                <?php if ($user != null) : ?>
+                    <!-- Display the user's name in the navbar -->
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " id="user-info" href="/ttl" text-align: right;>Welcome, <?php echo $user->username; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mustahiq">Daftar Penerima Zakat</a>
+                        <a class="nav-link" href="/logout">logout</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                <?php else : ?>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="/login" text-align: right;>Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="/register" text-align: right;>Register</a>
                     </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+                <?php endif; ?>
+
+            </ul>
         </div>
     </div>
 </nav>

@@ -16,10 +16,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($identitas as $m) : ?>
+                    <?php foreach ($user as $m) : ?>
                         <tr>
-                            <th scope="row"><?= $m['id']; ?></th>
-                            <td><?= $m['username']; ?></td>
+                            <th scope="row"><?= $m->userid; ?></th>
+                            <td><?= $m->username; ?></td>
+                            <td><?= $m->group; ?></td>
 
 
                         </tr>
